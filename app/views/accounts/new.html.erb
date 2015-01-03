@@ -1,0 +1,19 @@
+<h1>New Article</h1>
+
+<%= link_to 'Back', accounts_path %>
+
+<%= form_for :account, url: accounts_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

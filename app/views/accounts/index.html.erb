@@ -1,0 +1,18 @@
+<h1>Accounts#index</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @accounts.each do |account| %>
+    <tr>
+      <td><%= account.title %></td>
+      <td><%= account.text %></td>
+    </tr>
+  <% end %>
+
+  <%= link_to 'New article', new_account_path %>
+
+</table>
