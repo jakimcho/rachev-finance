@@ -1,0 +1,3 @@
+      invoke  active_record
+      remove    db/migrate/20150822210200_add_email_to_user.rb
+      create    db/migrate/20150822210255_add_email_to_user.rb
