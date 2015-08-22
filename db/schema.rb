@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230110917) do
+ActiveRecord::Schema.define(version: 20150822154229) do
 
   create_table "accounts", force: true do |t|
     t.string   "title"
@@ -19,5 +19,22 @@ ActiveRecord::Schema.define(version: 20141230110917) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "families", force: true do |t|
+    t.string   "name",       null: false
+    t.string   "pass",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name",       null: false
+    t.string   "password",   null: false
+    t.integer  "family_id",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["family_id"], name: "index_users_on_family_id"
 
 end
