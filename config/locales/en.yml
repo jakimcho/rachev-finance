@@ -22,5 +22,9 @@
 en:
   nav_menu:
     expense: "Expense"
-  hello: "Hello world"
+    users: "Users"
+    accounts: "Accounts"
+    hello: "Hello world"
+    sign_in: "Login" 
+    sign_up: "Register"
 

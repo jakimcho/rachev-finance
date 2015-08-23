@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :accounts
+  resources :users
   # Example resource route with options:
   #   resources :products do
   #     member do
