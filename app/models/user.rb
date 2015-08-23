@@ -14,6 +14,6 @@
 class User < ActiveRecord::Base
   belongs_to :family
 
-  validates :name, :password, :family_id, :email, presence: true
-  validates :email, uniqueness: { case_sensitive: false }
+  validates(:name, :password, :family_id, :email, presence: true)
+  validate(:email, uniqueness: true)
 end
