@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+  get 'users/delete'
+
+  get 'users/update'
+
   get 'home/index'
   root 'home#index'
 
