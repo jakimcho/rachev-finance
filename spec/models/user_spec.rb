@@ -8,6 +8,7 @@
 #  family_id  :integer          not null
 #  created_at :datetime
 #  updated_at :datetime
+#  email      :string(255)
 #
 
 require 'rails_helper'
@@ -24,8 +25,8 @@ describe User do
                      }
 
       @family_attr = {
-                      name: "Rachevi", 
-                      pass: "123321"
+                        name: "Rachevi", 
+                        pass: "123321"
                       }
 
            @family = Family.create(@family_attr)

@@ -8,8 +8,12 @@
 #  family_id  :integer          not null
 #  created_at :datetime
 #  updated_at :datetime
+#  email      :string(255)
 #
 
 class User < ActiveRecord::Base
   belongs_to :family
+
+  validates(:name, :password, :family_id, :email, presence: true)
+  validate(:email, uniqueness: true)
 end
