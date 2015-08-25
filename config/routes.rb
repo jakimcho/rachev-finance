@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'families/new'
+
   get 'home/index'
   root 'home#index'
 
@@ -17,8 +19,10 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  resources :families, :only => [:show, :new, :create, :index]
   resources :accounts
   resources :users
+
   # Example resource route with options:
   #   resources :products do
   #     member do
