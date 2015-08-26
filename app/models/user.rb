@@ -14,6 +14,7 @@
 class User < ActiveRecord::Base
   belongs_to :family
 
-  validates(:name, :password, :family_id, :email, presence: true)
-  validate(:email, uniqueness: true)
+  validates :name, :password, :family_id, :email, presence: true
+  validate  :email, uniqueness: true
+  validates :password, :presence => true, :confirmation => true
 end

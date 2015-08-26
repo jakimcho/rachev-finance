@@ -1,3 +1,11 @@
+#  id         :integer          not null, primary key
+#  name       :string(255)      not null
+#  password   :string(255)      not null
+#  family_id  :integer          not null
+#  created_at :datetime
+#  updated_at :datetime
+#  email      :string(255)
+
 class UsersController < ApplicationController
 
 
@@ -6,6 +14,23 @@ class UsersController < ApplicationController
   end
 
   def create
+    logger.debug user_params
+    logger.debug "Password #{params[:user]}"
+    logger.debug "password_confirmation #{params[:password_confirmation]}"
+    if params[:password].equal? params[:password_confirmation]
+      logger.debug 'parolite sa ednakwi'
+    end
+
+    @user = User.new user_params
+    logger.debug @user.inspect
+
+    if @user.save
+      logger.debug "success"
+      redirect_to users_path
+    else
+      logger.debug "sorry dude"
+      render :new
+    end
   end
 
   def new
@@ -20,5 +45,11 @@ class UsersController < ApplicationController
 
   def update
 
+  end
+
+private
+
+  def user_params
+    params.require(:user).permit(:name, :pasword, :password_confirmation, :email, :family_id)
   end
 end
