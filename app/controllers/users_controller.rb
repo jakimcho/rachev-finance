@@ -28,8 +28,8 @@ class UsersController < ApplicationController
       logger.debug "success"
       redirect_to users_path
     else
-      logger.debug "sorry dude"
-      render :new
+      flash[:error] = @user.errors.full_messages[0]
+      redirect_to new_user_path
     end
   end
 
@@ -50,6 +50,6 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:name, :pasword, :password_confirmation, :email, :family_id)
+    params.require(:user).permit(:name, :password, :password_confirmation, :email, :family_id)
   end
 end
