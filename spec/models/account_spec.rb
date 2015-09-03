@@ -11,10 +11,8 @@
 #  updated_at :datetime
 #
 
-require 'test_helper'
+require 'rails_helper'
 
-class AccountTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+RSpec.describe Account, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
