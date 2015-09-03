@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :families, :only => [:show, :new, :create, :index]
-  resources :accounts
-  resources :users
+  resources :users do
+    resources :accounts
+  end
 
   # Example resource route with options:
   #   resources :products do
