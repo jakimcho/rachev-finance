@@ -10,7 +10,9 @@
 class AccountsController < ApplicationController
 
 def index
-     @accounts = Account.all
+	@user = user;
+
+    @accounts = @user.find()
    end
 
   def show

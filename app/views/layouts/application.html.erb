@@ -49,9 +49,9 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to t("nav_menu.users"),  users_path  %></li>
-            <li><%= link_to t("nav_menu.accounts"),  accounts_path  %></li>
+            <li><%= link_to t("nav_menu.accounts"),  user_accounts_path(@user) if @user %></li>
+            <%# TODO: Fix the uper line to not display li tag when user is not logged in%>
             <li><%= link_to t("nav_menu.income"), "/path2"  %></li>
-            <li><%= link_to t("nav_menu.accounts"), "/path2"  %></li>
             <li><%= link_to t("nav_menu.budget"), "/path2"  %></li>
             <li><%= link_to t("nav_menu.analysis"), "/path2"  %></li>
           </ul>

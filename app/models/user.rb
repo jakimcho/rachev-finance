@@ -13,6 +13,7 @@
 
 class User < ActiveRecord::Base
   belongs_to :family
+  has_many :accounts
 
   validates :name, :password, :family_id, :email, presence: true
   validate  :email, uniqueness: true
