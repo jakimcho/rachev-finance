@@ -4,8 +4,11 @@ class SessionsController < ApplicationController
 
   def create
   	user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
+    logger.debug params[:session]
+    logger.debug params[:session][:password_digest]
+    if user && user.authenticate(params[:session][:password_digest])
+      @user = user;
+      render home_index_path
     else
       # Create an error message.
       render 'new'
