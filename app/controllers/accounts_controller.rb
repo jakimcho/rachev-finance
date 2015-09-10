@@ -9,14 +9,20 @@
 #
 class AccountsController < ApplicationController
 
-def index
-	@user = user;
+  def index
+    logger.debug "enter in accounts#index"
+    @user = User.find(params[:user_id])
 
-    @accounts = @user.find()
-   end
+    logger.debug @user
+    logger.debug "Number of the account is " + @user.accounts.length.to_s
+
+    @accounts = @user.accounts
+    debugger
+  end
 
   def show
   	@account = Account.find(params[:id])
+    debugger
   end
 
   def new

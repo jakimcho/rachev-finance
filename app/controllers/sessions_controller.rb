@@ -16,5 +16,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    render root_path
   end
 end

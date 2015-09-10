@@ -48,7 +48,7 @@
         <a class="navbar-brand" href="#">RachevFinance</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to t("nav_menu.users"),  users_path  %></li>
+            <li><%= link_to t("nav_menu.home"),  user_path(@user) if @user %></li>
             <li><%= link_to t("nav_menu.accounts"),  user_accounts_path(@user) if @user %></li>
             <%# TODO: Fix the uper line to not display li tag when user is not logged in%>
             <li><%= link_to t("nav_menu.income"), "/path2"  %></li>
@@ -57,8 +57,12 @@
           </ul>
           <!--Right Align-->
           <ul class="nav navbar-nav navbar-right">
-             <li> <%= link_to t("nav_menu.sign_in" ), login_path %></li>
-             <li> <%= link_to t("nav_menu.sign_up" ), new_user_path %></li>
+            <% unless @user %>
+              <li> <%= link_to t("nav_menu.sign_in" ), login_path %></li>
+              <li> <%= link_to t("nav_menu.sign_up" ), new_user_path %></li>
+            <% else %>
+               <li> <%= link_to t("nav_menu.logout" ), logout_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
