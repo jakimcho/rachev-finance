@@ -14,9 +14,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  text: MyText
+  name: Test_account_1
+  balance: 100
 
 two:
-  title: MyString
-  text: MyText
+  name: Test_account_2
+  balance: 200

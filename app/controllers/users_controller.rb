@@ -17,16 +17,13 @@ class UsersController < ApplicationController
     logger.debug user_params
     logger.debug "Password #{params[:user]}"
     logger.debug "password_confirmation #{params[:password_confirmation]}"
-    if params[:password].equal? params[:password_confirmation]
-      logger.debug 'parolite sa ednakwi'
-    end
 
     @user = User.new user_params
     logger.debug @user.inspect
 
     if @user.save
       logger.debug "success"
-      redirect_to users_path
+      redirect_to @user
     else
       flash[:error] = @user.errors.full_messages[0]
       redirect_to new_user_path
@@ -41,7 +38,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    redirect_to root_path unless logged_in?
+    @user = current_user
   end
 
   def update
