@@ -19,14 +19,16 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  nav_menu:
-    expense: "Expense"
-    users: "Users"
-    accounts: "Accounts"
+en: 
+  accounts: 
+    new_user_account_button: "New Account"
+  nav_menu: 
+    accounts: Accounts
+    expense: Expense
     hello: "Hello world"
-    sign_in: "Login" 
-    sign_up: "Register"
-    logout: "Logout"
-    home: "Home"
+    home: Home
+    logout: Logout
+    sign_in: Login
+    sign_up: Register
+    users: Users
 
