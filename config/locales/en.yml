@@ -31,4 +31,6 @@ en:
     sign_in: Login
     sign_up: Register
     users: Users
-
+en:
+  user:
+    create_account: "Create New Account"

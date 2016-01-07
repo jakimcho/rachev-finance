@@ -14,5 +14,6 @@
 class Account < ActiveRecord::Base
   belongs_to :user
 
-  validates :name, :user_id, presence: true
+  validates :name, :user_id, :balance, presence: true
+  validates :balance, numericality: true
 end
