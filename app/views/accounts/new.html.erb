@@ -1,17 +1,18 @@
 <h1>New Article</h1>
 
-<%= link_to 'Back', accounts_path %>
+<%= link_to 'Back', user_accounts_path(current_user) %>
 
-<%= form_for :account, url: accounts_path do |f| %>
+<%= form_for :account, :builder => JRForm , url: user_accounts_path do |f| %>
   <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </p>
  
   <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= f.label :balance %><br>
+    <%= f.monetary_field :balance, 0.00 %>
   </p>
+  
  
   <p>
     <%= f.submit %>
