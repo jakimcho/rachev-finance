@@ -29,4 +29,6 @@ en:
     sign_up: "Register"
     logout: "Logout"
     home: "Home"
-
+en:
+  user:
+    create_account: "Create New Account"

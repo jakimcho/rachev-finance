@@ -29,14 +29,22 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @account = Account.new(account_params)
-   
-    @account.save
-    redirect_to @account
+    params = account_params.merge({user_id: current_user.id})
+    logger.debug "account_params #{params}"
+    @account = Account.new(params)
+    
+    logger.debug "After creating new account " + @account.inspect
+    if @account.save
+      logger.debug  [current_user, @account].inspect
+      redirect_to [current_user, @account]
+    else
+      redirect_to new_user_account_path(current_user)
+    end
+    
   end
    
   private
     def account_params
-      params.require(:account).permit(:name, :user_id, :balance, :icon)
+      params.require(:account).permit(:name, :balance)
     end
 end
