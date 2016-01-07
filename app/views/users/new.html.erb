@@ -1,9 +1,9 @@
-<%= form_for :users, url: users_path do |f| %>
+<%= form_for :user, url: users_path do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
- 
+
   <p>
     <%= f.label :email %><br>
     <%= f.email_field :email %>
@@ -14,12 +14,18 @@
     <%= f.password_field :password %>
   </p>
 
-    <p>
-    <%= f.label :confirm_password %><br>
-    <%= f.password_field :confirm_password %>
-  </p>
- 
   <p>
-    <%= f.submit %>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </p>
+
+  <p>
+    <%= f.label :family, "Select your family" %><br>
+    <%= f.select :family_id, Family.all.collect { |c| [ c.name, c.id ] }, include_blank: true %>
+    <%=link_to "Register a family", new_family_path %>
+  </p>
+
+  <p>
+    <%= f.submit class: "btn btn-primary" %>
   </p>
 <% end %>

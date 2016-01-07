@@ -15,5 +15,7 @@
 /log/*.log
 /tmp
 /*.lock
+*.buildpath
+*.DS_Store
 *.project
-*.settings/
+*.settings

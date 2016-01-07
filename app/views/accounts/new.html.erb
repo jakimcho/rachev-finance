@@ -1,16 +1,15 @@
 <h1>New Article</h1>
 
-<%= link_to 'Back', accounts_path %>
 
-<%= form_for :account, url: accounts_path do |f| %>
+<%= form_for :account, url: user_accounts_path do |f| %>
   <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :name %><br>
+    <%= f.text_field :account_name%>
   </p>
  
   <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= f.label :balance %><br>
+    <%= f.text_area :balance %>
   </p>
  
   <p>

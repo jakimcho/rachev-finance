@@ -11,8 +11,8 @@
 #  updated_at :datetime
 #
 
-class Account < ActiveRecord::Base
-  belongs_to :user
+require 'rails_helper'
 
-  validates :name, :user_id, presence: true
+RSpec.describe Account, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -20,6 +20,7 @@ group :development do
   gem 'annotate', '~> 2.6.6'
 end
 
+gem 'bcrypt'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
