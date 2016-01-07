@@ -1,10 +1,13 @@
 <%= link_to 'Back', accounts_path %>
-<p>
-  <strong>Title:</strong>
-  <%= @account.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @account.text %>
-</p>
+
+<%  @accounts.each do |account| %>
+	<p>
+	  <strong>Title:</strong>
+	  <%= account.title %>
+	</p>
+	 
+	<p>
+	  <strong>Text:</strong>
+	  <%= account.text %>
+	</p>
+<% end %>
