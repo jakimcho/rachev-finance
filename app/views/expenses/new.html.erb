@@ -1,0 +1,25 @@
+<%= form_for :expense, :builder => JRForm , url: user_expenses_path do |f| %>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+ 
+  <p>
+    <%= f.label :amount %><br>
+    <%= f.monetary_field :amount, 0.00 %>
+  </p>
+  
+  <p>
+    <%= f.label :account, "Select account for the expense" %><br>
+    <%= f.select :account_id, current_user.accounts.all.collect { |a| [ a.name, a.id ] }, include_blank: false %>
+  </p>
+  
+  <p>
+  	<%= f.label :date, "Select Date for the expense" %><br>
+  	<%= f.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
+  </p>
+
+  <p>
+    <%= f.submit class: "btn btn-primary" %>
+  </p>
+<% end %>

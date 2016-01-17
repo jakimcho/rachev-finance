@@ -12,7 +12,7 @@
     <tr>
       <td><%= income.description %></td>
       <td><%= income.income %></td>
-      <td><%= Account.find(income.account_id).name %></td>
+      <td><%= income.account.name %></td>
     </tr>
   <% end %>
   <%= link_to t("incomes.create_income_link"),  new_user_income_path(current_user) %>

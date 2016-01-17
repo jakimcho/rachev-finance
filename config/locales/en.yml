@@ -33,6 +33,8 @@ en:
     sign_in: Login
     sign_up: Register
     users: Users
+  expenses:
+    create_expense_link: "Add Expense"
 en:
   user:
     create_account: "Create New Account"

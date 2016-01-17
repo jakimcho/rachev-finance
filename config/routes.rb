@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :accounts
     resources :incomes
+    resources :expenses
   end
 
   # Example resource route with options:

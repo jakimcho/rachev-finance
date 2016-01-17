@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   belongs_to :family
   has_many :accounts
   has_many :incomes
+  has_many :expenses
  
   validates :name, :password_digest, :family_id, :email, presence: true
   validate  :email, uniqueness: true

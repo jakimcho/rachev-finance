@@ -14,6 +14,7 @@
 class Account < ActiveRecord::Base
   belongs_to  :user
   has_many    :incomes
+  has_many    :expenses
 
   validates :name, :user_id, :balance, presence: true
   validates :balance, numericality: true
