@@ -13,9 +13,6 @@
     <%= f.label :account, "Select account for the income" %><br>
     <%= f.select :account_id, current_user.accounts.all.collect { |a| [ a.name, a.id ] }, include_blank: false %>
   </p>
-  <p>
-    <%= f.submit %>
-  </p>
 
   <p>
     <%= f.submit class: "btn btn-primary" %>

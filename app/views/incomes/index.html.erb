@@ -3,14 +3,16 @@
 <h2> Incomes number <%= current_user.incomes.length %> </h2>
 <table>
   <tr>
-    <th>Title</th>
-    <th>Text</th>
+    <th>Description</th>
+    <th>Income Value</th>
+    <th>To Account</th>
   </tr>
 
   <% current_user.incomes.each do |income| %>
     <tr>
-      <td><%= income.name %></td>
-      <td><%= income.balance %></td>
+      <td><%= income.description %></td>
+      <td><%= income.income %></td>
+      <td><%= Account.find(income.account_id).name %></td>
     </tr>
   <% end %>
   <%= link_to t("incomes.create_income_link"),  new_user_income_path(current_user) %>
