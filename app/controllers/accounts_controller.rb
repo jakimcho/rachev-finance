@@ -1,4 +1,3 @@
-
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  balance    :decimal(, )
@@ -8,7 +7,6 @@
 #  updated_at :datetime
 #
 class AccountsController < ApplicationController
-
   def index
     logger.debug "enter in accounts#index"
     logger.debug current_user
@@ -18,18 +16,18 @@ class AccountsController < ApplicationController
   end
 
   def show
-  	@account = Account.find(params[:id])
+    @account = Account.find(params[:id])
   end
 
   def new
-    
+
   end
 
   def create
     params = account_params.merge({user_id: current_user.id})
     logger.debug "account_params #{params}"
     @account = Account.new(params)
-    
+
     logger.debug "After creating new account " + @account.inspect
     if @account.save
       logger.debug  [current_user, @account].inspect
@@ -38,9 +36,11 @@ class AccountsController < ApplicationController
       redirect_to new_user_account_path(current_user)
     end
   end
-   
+
   private
-    def account_params
-      params.require(:account).permit(:name, :balance)
-    end
+
+  def account_params
+    params.require(:account).permit(:name, :balance)
+  end
+
 end

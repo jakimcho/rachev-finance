@@ -15,4 +15,7 @@ class Income < ActiveRecord::Base
   belongs_to :account # Will create FK account_id
   # has_one :user Will Create FK income_id in User model
   
+  validates :description, :user_id, :account_id, :income, presence: true
+  validates :income, numericality: true
+  
 end
