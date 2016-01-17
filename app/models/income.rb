@@ -6,7 +6,7 @@
 #  description  :string(255)
 #  income       :decimal
 #  account_id   :integer
-#  user         :string(255)
+#  user_id      :integer
 #  created_at   :datetime
 #  updated_at   :datetime
 #

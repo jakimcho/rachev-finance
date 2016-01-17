@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :families, :only => [:show, :new, :create, :index]
   resources :users do
     resources :accounts
+    resources :incomes
   end
 
   # Example resource route with options:

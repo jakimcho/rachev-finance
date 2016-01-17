@@ -51,7 +51,7 @@
           <% if logged_in? %>
             <li><%= link_to t("nav_menu.home"),  user_path(current_user) %></li>
             <li><%= link_to t("nav_menu.accounts"),  user_accounts_path(current_user) %></li>
-            <li><%= link_to t("nav_menu.income"), "/path2"  %></li>
+            <li><%= link_to t("nav_menu.income"), user_incomes_path(current_user)  %></li>
             <li><%= link_to t("nav_menu.budget"), "/path2"  %></li>
             <li><%= link_to t("nav_menu.analysis"), "/path2"  %></li>
           <% end %>

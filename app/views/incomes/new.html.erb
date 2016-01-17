@@ -1,0 +1,23 @@
+<%= form_for :income, :builder => JRForm , url: user_incomes_path do |f| %>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+ 
+  <p>
+    <%= f.label :income %><br>
+    <%= f.monetary_field :income, 0.00 %>
+  </p>
+  
+  <p>
+    <%= f.label :account, "Select account for the income" %><br>
+    <%= f.select :account_id, current_user.accounts.all.collect { |a| [ a.name, a.id ] }, include_blank: false %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+  <p>
+    <%= f.submit class: "btn btn-primary" %>
+  </p>
+<% end %>

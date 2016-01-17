@@ -22,6 +22,8 @@
 en: 
   accounts: 
     new_user_account_button: "New Account"
+  incomes:
+    create_income_link: "New Income"
   nav_menu: 
     accounts: Accounts
     expense: Expense

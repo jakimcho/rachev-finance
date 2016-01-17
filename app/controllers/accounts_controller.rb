@@ -11,10 +11,10 @@ class AccountsController < ApplicationController
 
   def index
     logger.debug "enter in accounts#index"
-    logger.debug user
-    logger.debug "Number of the account is " + user.accounts.length.to_s
+    logger.debug current_user
+    logger.debug "Number of the account is " + current_user.accounts.length.to_s
 
-    @accounts = user.accounts
+    @accounts = current_user.accounts
   end
 
   def show
