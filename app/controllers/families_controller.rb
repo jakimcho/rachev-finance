@@ -5,7 +5,7 @@ class FamiliesController < ApplicationController
   end
 
   def new
-  logger.debug "Hello"
+    logger.debug "Hello"
   end
 
   def create
