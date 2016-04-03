@@ -2,13 +2,15 @@
 #
 # Table name: Incomes
 #
-#  id           :integer          not null, primary key
-#  description  :string(255)
-#  income       :decimal
-#  account_id   :integer
-#  user_id      :integer
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id          :integer     not null, primary key
+#  title       :string(255)
+#  date        :date 
+#  description :string(255)
+#  income      :decimal
+#  account_id  :integer
+#  user_id     :integer
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 class Income < ActiveRecord::Base
@@ -16,7 +18,7 @@ class Income < ActiveRecord::Base
   # has_one :user Will Create FK income_id in User model
   belongs_to :user
   
-  validates :description, :user_id, :account_id, :income, presence: true
+  validates :title, :date, :user_id, :account_id, :income, presence: true
   validates :income, numericality: true
   
 end

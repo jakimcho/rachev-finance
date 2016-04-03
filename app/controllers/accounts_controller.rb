@@ -11,12 +11,9 @@ class AccountsController < ApplicationController
     logger.debug "enter in accounts#index"
     logger.debug current_user
     logger.debug "Number of the account is " + current_user.accounts.length.to_s
-    @accounts = []
-    
-    user_family = Family.find current_user.family_id
-    user_family.users.each do |u|
-      @accounts += u.accounts
-    end
+
+    @accounts = current_user.accounts
+
   end
 
   def show

@@ -1,18 +1,21 @@
-<h1>Accounts#index</h1>
+<h1>All <%= current_user.name.titleize %> incomes</h1>
 
 <h2> Incomes number <%= current_user.incomes.length %> </h2>
-<table>
+<table class="table table-hover table-bordered">
+<tbody>
   <tr>
     <th>Description</th>
     <th>Income Value</th>
     <th>To Account</th>
+    <th>Date</th>
   </tr>
-
+</tbody>
   <% current_user.incomes.each do |income| %>
-    <tr>
+    <tr onclick="window.location.href='<%= income.id %>'">
       <td><%= income.description %></td>
       <td><%= income.income %></td>
       <td><%= income.account.name %></td>
+      <td><%= income.account.created_at %></td>
     </tr>
   <% end %>
   <%= link_to t("incomes.create_income_link"),  new_user_income_path(current_user) %>

@@ -25,3 +25,7 @@
 input {
   height: auto !important;
 }
+
+.centered {
+    margin: auto;
+}

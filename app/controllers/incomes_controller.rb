@@ -1,3 +1,5 @@
+require "pp"
+
 class IncomesController < ApplicationController
   def index
   end
@@ -8,7 +10,7 @@ class IncomesController < ApplicationController
   def create
     logger.debug "Parameters came from income create form #{income_params}"
     params = income_params.merge({user_id: current_user.id})
-
+    pp params
     @income = Income.new(params)
 
     logger.debug "After income creation #{@income}"
@@ -29,7 +31,7 @@ class IncomesController < ApplicationController
   private
 
   def income_params
-    params.require(:income).permit(:description, :income, :account_id)
+    params.require(:income).permit(:title, :date, :description, :income, :account_id)
   end
 
   def add_income_to_account account_id, income
