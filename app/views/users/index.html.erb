@@ -1,7 +1,22 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 
-<%= @users.each do |t| %>
-   <%= puts t.name %> <br />
-<% end %>
+<table id="users_table" class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Family</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |u| %>
+    <tr>
+      <td><%= u.name %></td>
+      <td><%= u.email %></td>
+      <td><%= Family.find(u.family_id).name %></td>
+    </tr>
+    <% end %>
+   </tbody>
+</table>
 <%= link_to 'User', controller: 'users' %>
