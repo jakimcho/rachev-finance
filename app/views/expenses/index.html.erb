@@ -1,21 +1,64 @@
 <h1>Expenses#index</h1>
 
 <h2> Expenses number <%= current_user.expenses.length %> </h2>
-<table>
-  <tr>
-    <th>Description</th>
-    <th>Expense Value</th>
-    <th>From Account</th>
-    <th>Date</th>
-  </tr>
-
-  <% current_user.expenses.each do |expense| %>
-    <tr>
-      <td><%= expense.description %></td>
-      <td><%= expense.amount %></td>
-      <td><%= expense.account.name %></td>
-      <td><%= expense.date %></td>
-    </tr>
-  <% end %>
+<div class="container-50 centered">
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active">
+      <a data-toggle="tab" href="#by-category"> 
+        <%= t("general.category_label")%> 
+      </a>
+    </li>
+    <li role="presentation">
+      <a data-toggle="tab" href="#by-date">
+        <%= t("general.date_label")%>
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade in active" id="by-category">
+      <table class="table table-bordered table-hover tab-pane fade in active" id="by-category">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Expense Value</th>
+            <th>From Account</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% current_user.expenses.each do |expense| %>
+          <tr>
+            <td><%= expense.description %></td>
+            <td><%= expense.amount %></td>
+            <td><%= expense.account.name %></td>
+            <td><%= expense.date %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="tab-pane fade" id="by-date">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Description 1</th>
+            <th>Expense Value 2</th>
+            <th>From Account 3</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% current_user.expenses.each do |expense| %>
+          <tr>
+            <td><%= expense.description %></td>
+            <td><%= expense.amount %></td>
+            <td><%= expense.account.name %></td>
+            <td><%= expense.date %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <%= link_to t("expenses.create_expense_link"),  new_user_expense_path(current_user) %>
-</table>

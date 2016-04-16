@@ -27,5 +27,14 @@ input {
 }
 
 .centered {
-    margin: auto;
+  float:none;
+  margin:0 auto;
+}
+
+.container-50 {
+  width: 50%;
+}
+
+.container-70 {
+  width: 70%;
 }

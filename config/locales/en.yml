@@ -38,3 +38,7 @@ en:
 en:
   user:
     create_account: "Create New Account"
+en:
+  general:
+    category_label: "Category"
+    date_label: "Date"

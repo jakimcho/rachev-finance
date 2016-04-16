@@ -1,22 +1,23 @@
 <%= form_for :expense, :builder => JRForm , url: user_expenses_path do |f| %>
   <p>
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: "form-control" %>
   </p>
  
   <p>
     <%= f.label :amount %><br>
-    <%= f.monetary_field :amount, 0.00 %>
+    <%= f.monetary_field :amount, 0.00, "form-control" %> <!-- The third parameter is for what class to by applyed-->
   </p>
   
   <p>
     <%= f.label :account, "Select account for the expense" %><br>
-    <%= f.select :account_id, current_user.accounts.all.collect { |a| [ a.name, a.id ] }, include_blank: false %>
+    <%= f.select :account_id, current_user.accounts.all.collect { |a| [ a.name, a.id ] }, {},
+        include_blank: false, class: "form-control input-lg-3 input-sm" %>
   </p>
   
   <p>
   	<%= f.label :date, "Select Date for the expense" %><br>
-  	<%= f.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
+  	<%= f.date_field :date, value: Time.now.strftime('%Y-%m-%d'), class: "form-control" %>
   </p>
 
   <p>
