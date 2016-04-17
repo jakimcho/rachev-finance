@@ -31,6 +31,9 @@ Rails.application.routes.draw do
     resources :incomes
     resources :expenses
   end
+  
+  resources :categories
+  
 
   # Example resource route with options:
   #   resources :products do

@@ -1,0 +1,35 @@
+<h1>Categories#index</h1>
+
+<h2> Categories number <%= @categories.length %> </h2>
+  
+<div class="panel-group">
+  <% @categories.each do |cat| %>
+    <% unless has_parent_category? cat %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <% cat_panel_id = cat.description.gsub! /\s+/, '-' %>
+            <a data-toggle="collapse" href="#<%=cat_panel_id %>">
+              <%= image_tag cat.icon.url(:thumb), class: "category-icon" unless cat.icon_file_name.nil? %>
+              <%= cat.description %>
+            </a>
+          </h4>
+        </div>
+        <% if has_sub_categories? cat %>
+          <div class="panel-collapse collapse" id="<%= cat_panel_id %>" >
+            <ul class="list-group">
+              <% cat.sub_categories.each do |sub_cat| %>
+                <li class="list-group-item">
+                  <%= image_tag sub_cat.icon.url(:thumb), class: "category-icon" unless sub_cat.icon_file_name.nil? %> 
+                  <%=sub_cat.description%></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
+  <%= link_to t("category.create_category_link"),  new_category_path %>

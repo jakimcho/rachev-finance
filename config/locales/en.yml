@@ -25,20 +25,22 @@ en:
   incomes:
     create_income_link: "New Income"
   nav_menu: 
-    accounts: Accounts
-    expense: Expense
+    accounts: "Accounts"
+    expense: "Expense"
     hello: "Hello world"
-    home: Home
-    logout: Logout
-    sign_in: Login
-    sign_up: Register
-    users: Users
+    home: "Home"
+    logout: "Logout"
+    sign_in: "Login"
+    sign_up: "Register"
+    users: "Users"
+    categories: "Categories"
   expenses:
     create_expense_link: "Add Expense"
-en:
+  category:
+    create_category_link: "create new category"
   user:
     create_account: "Create New Account"
-en:
+    
   general:
     category_label: "Category"
     date_label: "Date"

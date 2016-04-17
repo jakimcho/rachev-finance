@@ -1,0 +1,26 @@
+<%= form_for :category, html: { multipart: true }, url: categories_path do |f| %>
+  <p>
+    <%= f.file_field :icon %>
+  </p>
+  
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.label :summary %><br>
+    <%= f.text_field :summary %>
+  </p>
+
+  <p>
+    <%= f.label :category_id %><br>
+    <%= f.select :category_id, 
+        all_parent_categories.collect { |c| [ c.description, c.id ] }, 
+        include_blank: true %>
+  </p>
+
+  <p>
+    <%= f.submit class: "btn btn-primary" %>
+  </p>
+<% end %>
