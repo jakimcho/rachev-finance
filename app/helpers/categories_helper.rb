@@ -1,4 +1,8 @@
 module CategoriesHelper
+  def has_suppliers? cat
+    !cat.suppliers.empty?
+  end
+  
   def has_sub_categories? cat
     !cat.sub_categories.empty?
   end

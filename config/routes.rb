@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   end
   
   resources :categories
+  resources :suppliera
   
 
   # Example resource route with options:

@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
   has_many :sub_categories, class: Category, foreign_key: :category_id
+  has_and_belongs_to_many :suppliers
   belongs_to :parent_category, class: Category, foreign_key: :category_id
   
   has_attached_file :icon, styles: { medium: "100x100>", thumb: "50x50>" }

@@ -26,7 +26,29 @@
             </ul>
           </div>
         <% end %>
+        <% if has_suppliers? cat %>
+          <div class="panel-collapse collapse" id="<%= cat_panel_id %>" >
+            <ul class="list-group">
+              <% cat.suppliers.each do |supp| %>
+                <li class="list-group-item">
+                  <%= image_tag supp.icon.url(:thumb), class: "category-icon" unless supp.icon_file_name.nil? %> 
+                  <%= supp.name %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
       </div>
+      <% if has_suppliers? cat %>
+        <div class="panel-collapse collapse" id="<%= cat_panel_id %>" >
+          <ul class="list-group">
+            <% cat.suppliers.each do |supp| %>
+              <li class="list-group-item">
+                <%= image_tag supp.icon.url(:thumb), class: "category-icon" unless supp.icon_file_name.nil? %> 
+                <%= supp.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 

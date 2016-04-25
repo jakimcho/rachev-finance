@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417065850) do
+ActiveRecord::Schema.define(version: 20160418193434) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 20160417065850) do
     t.string   "icon_content_type"
     t.integer  "icon_file_size"
     t.datetime "icon_updated_at"
+  end
+
+  create_table "categories_suppliers", id: false, force: true do |t|
+    t.integer "category_id"
+    t.integer "supplier_id"
   end
 
   create_table "expenses", force: true do |t|
@@ -69,6 +74,18 @@ ActiveRecord::Schema.define(version: 20160417065850) do
 
   add_index "incomes", ["account_id"], name: "index_incomes_on_account_id"
   add_index "incomes", ["user_id"], name: "index_incomes_on_user_id"
+
+  create_table "suppliers", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name",            null: false
