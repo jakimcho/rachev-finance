@@ -8,12 +8,13 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
-            <% cat_panel_id = cat.description.gsub! /\s+/, '-' %>
-            <a data-toggle="collapse" href="#<%=cat_panel_id %>">
+            <% cat_panel_id = cat.description.gsub /\s/, '-' %>
+            <a data-toggle="collapse" href="#<%= cat_panel_id %>">
               <%= image_tag cat.icon.url(:thumb), class: "category-icon" unless cat.icon_file_name.nil? %>
               <%= cat.description %>
             </a>
           </h4>
+          <h3>Ala bala <%= cat_panel_id %> </h3>
         </div>
         <% if has_sub_categories? cat %>
           <div class="panel-collapse collapse" id="<%= cat_panel_id %>" >
